@@ -1,0 +1,23 @@
+<h1>Articles</h1>
+
+<div id="articles">
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Title</th>
+      <th scope="col">Description</th>
+      <th scope="col">Last Changes</th>
+      <th scope="col">UserID</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @articles.each do |article| %>
+    <%= render article %>
+  <% end %>
+  </tbody>
+</table>
+
+<%= link_to "New article", new_article_path, class: "btn btn-success" %>
+</div>

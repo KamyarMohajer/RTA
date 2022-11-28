@@ -1,0 +1,24 @@
+<div id="<%= dom_id article %>">
+  <tr>
+    <th scope="row">
+      <%= article.id %>
+    </th>
+    <td>
+      <%= article.title %>
+    </td>
+    <td>
+      <%= truncate(article.description, length: 40) %>
+    </td>
+    <td>
+      <%= time_ago_in_words(article.updated_at) %>
+    </td>
+    <td>
+      <%= article.user_id %>
+    </td>
+    <td>
+      <%= link_to "Show", article, class: "btn btn-info float-start me-2" %>
+      <%= link_to "Update", edit_article_path(article), class: "btn btn-warning float-start me-2" %>
+      <%= button_to "Delete", article, method: :delete, class: "btn btn-danger float-start me-2" %>
+    </td>
+  </tr>
+</div>
