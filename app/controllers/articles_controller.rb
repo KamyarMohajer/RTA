@@ -30,7 +30,7 @@ class ArticlesController < ApplicationController
 
     respond_to do |format|
       if @article.save
-        format.html { redirect_to article_url(@article), notice: "Article was successfully created." }
+        format.html { redirect_to article_url(@article), notice: { message: "Article was successfully created.", color: "success" } }
         format.json { render :show, status: :created, location: @article }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -43,7 +43,7 @@ class ArticlesController < ApplicationController
   def update
     respond_to do |format|
       if @article.update(article_params)
-        format.html { redirect_to article_url(@article), notice: "Article was successfully updated." }
+        format.html { redirect_to article_url(@article), notice: { message: "Article was successfully updated.", color: "warning" } }
         format.json { render :show, status: :ok, location: @article }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -56,7 +56,7 @@ class ArticlesController < ApplicationController
   def destroy
     @article.destroy
     respond_to do |format|
-      format.html { redirect_to articles_url, notice: "Article was successfully destroyed." }
+      format.html { redirect_to articles_url, notice: { message: "Article was successfully destroyed.", color: "danger" } }
       format.json { head :no_content }
     end
   end
@@ -74,7 +74,7 @@ class ArticlesController < ApplicationController
 
     def check_user_role 
       if !(current_user.admin?)
-        redirect_to root_path, notice: "Access denied"
+        redirect_to root_path, notice: { message: "Access denied, Only Admins are allowed", color: "danger" }
       end
     end
 end
