@@ -1,5 +1,22 @@
-<% if !(notice.nil?) %>
-    <div class="alert <%= "alert"+"-"+notice["color"] %>">
-        <%= notice["message"] %>
-    </div>
+<% flash.each do |type, message| %>
+    <% case type %>
+    <% when "success" %>
+        <div class="alert alert-success">
+            <%= message %>
+        </div>
+    <% when "warning" %>
+        <div class="alert alert-warning">
+            <%= message %>
+        </div>
+    <% when "danger" %>
+        <div class="alert alert-danger">
+            <%= message %>
+        </div>
+    <% else %>
+        <div class="alert alert-success">
+            <%= message %>
+        </div>
+    <% end %>
 <% end %>
+
+

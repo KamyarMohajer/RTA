@@ -1,7 +1,7 @@
 <%= form_with(model: article) do |form| %>
   <% if article.errors.any? %>
       <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
+        <h3><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h3>
         <ul>
           <% article.errors.each do |error| %>
             <li><%= error.full_message %></li>

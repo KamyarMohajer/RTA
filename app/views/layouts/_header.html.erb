@@ -33,6 +33,9 @@
               </li>
             <% else %>
               <li>
+                <%= link_to "Edit", edit_user_registration_path, class: "dropdown-item" %>
+              </li>
+              <li>
                 <%= button_to "SignOut", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
               </li>
             <% end %>
